@@ -3,10 +3,10 @@ var BoxItem = require('./BoxItem.jsx');
 
 var Box = React.createClass({
     render: function(){
-        var createItem = function(){
-            return <BoxItem/>;
+        var createItem = function(text, index){
+            return <BoxItem key={index + text} text={text} />;
         }
-        return (<div>{(createItem)}</div>)
+        return (<ul>{this.props.items.map(createItem)}</ul>)
     }
 });
 

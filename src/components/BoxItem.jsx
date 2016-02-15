@@ -3,7 +3,9 @@ var React = require('react');
 var BoxItem = React.createClass({
     render: function(){
         return (
-            <p>Hello World</p>
+            <li>
+                <h3>{this.props.text}</h3>
+            </li>
         );
     }
 });

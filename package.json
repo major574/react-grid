@@ -4,10 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "watchify src/main.jsx -v -t [ babelify --presets [ react] ] -o public/js/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/major574/react-grid.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/major574/react-grid/issues"
+  },
+
+  "homepage": "https://github.com/major574/react-grid#readme",
   "dependencies": {
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.2.0",
