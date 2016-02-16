@@ -19092,33 +19092,54 @@ var BoxManager = React.createClass({
         this.setState({ items: currentItems, newItemText: '' });
     },
     render: function () {
+        var divStyle = {
+            marginTop: 10
+        };
+        var headingStyle = {};
+
+        if (this.props.headingColor) {
+            headingStyle.background = this.props.headingColor;
+        }
+
         return React.createElement(
             'div',
-            null,
+            { style: divStyle, className: 'col-xs-4 col-sm-6 col-md-4 col-lg-6' },
             React.createElement(
                 'div',
-                null,
+                { className: 'panel panel-primary' },
                 React.createElement(
-                    'h3',
-                    null,
-                    this.props.title
-                )
-            ),
-            React.createElement(
-                'div',
-                null,
-                React.createElement(
-                    'form',
-                    { onSubmit: this.handleSubmit },
-                    React.createElement('input', { onChange: this.onChange, value: this.state.newItemText }),
+                    'div',
+                    { style: headingStyle, className: 'panel-heading' },
                     React.createElement(
-                        'button',
+                        'h3',
                         null,
-                        'Add'
+                        this.props.title
                     )
-                )
-            ),
-            React.createElement(Box, { items: this.state.items })
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'panel-body' },
+                    React.createElement(
+                        'form',
+                        { onSubmit: this.handleSubmit },
+                        React.createElement(
+                            'div',
+                            { className: 'col-sm-9' },
+                            React.createElement('input', { className: 'form-control', onChange: this.onChange, value: this.state.newItemText })
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: 'col-sm-2' },
+                            React.createElement(
+                                'button',
+                                { className: 'btn btn-primary' },
+                                'Add'
+                            )
+                        )
+                    )
+                ),
+                React.createElement(Box, { items: this.state.items })
+            )
         );
     }
 });
@@ -19130,6 +19151,9 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var BoxManager = require('./components/BoxManager.jsx');
 
-ReactDOM.render(React.createElement(BoxManager, { title: 'A Box' }), document.getElementById('aBox'));
+ReactDOM.render(React.createElement(BoxManager, { title: 'Box One', headingColor: 'red' }), document.getElementById('1Box'));
+ReactDOM.render(React.createElement(BoxManager, { title: 'Box Two', headingColor: 'blue' }), document.getElementById('2Box'));
+ReactDOM.render(React.createElement(BoxManager, { title: 'Box Three', headingColor: 'green' }), document.getElementById('3Box'));
+ReactDOM.render(React.createElement(BoxManager, { title: 'Box Four', headingColor: 'orange' }), document.getElementById('4Box'));
 
 },{"./components/BoxManager.jsx":161,"react":158,"react-dom":29}]},{},[162]);
